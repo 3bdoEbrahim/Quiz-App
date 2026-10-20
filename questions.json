@@ -1,0 +1,83 @@
+
+[
+    {
+        "title": "Which HTML element is used to create a hyperlink?",
+        "answer_1": "<link>",
+        "answer_2": "<a>",
+        "answer_3": "<href>",
+        "answer_4": "<url>",
+        "right_answer": "<a>"
+    },
+    {
+        "title": "Which CSS property changes the text color?",
+        "answer_1": "background-color",
+        "answer_2": "font-style",
+        "answer_3": "color",
+        "answer_4": "text-align",
+        "right_answer": "color"
+    },
+    {
+        "title": "Which JavaScript keyword declares a variable that can be reassigned?",
+        "answer_1": "const",
+        "answer_2": "let",
+        "answer_3": "static",
+        "answer_4": "define",
+        "right_answer": "let"
+    },
+    {
+        "title": "Which HTML element is used to display an image?",
+        "answer_1": "<picture>",
+        "answer_2": "<image>",
+        "answer_3": "<img>",
+        "answer_4": "<src>",
+        "right_answer": "<img>"
+    },
+    {
+        "title": "Which CSS property creates space inside an element's border?",
+        "answer_1": "margin",
+        "answer_2": "padding",
+        "answer_3": "gap",
+        "answer_4": "outline",
+        "right_answer": "padding"
+    },
+    {
+        "title": "What is the result of typeof 123 in JavaScript?",
+        "answer_1": "number",
+        "answer_2": "integer",
+        "answer_3": "string",
+        "answer_4": "object",
+        "right_answer": "number"
+    },
+    {
+        "title": "Which HTML attribute provides alternative text for an image?",
+        "answer_1": "title",
+        "answer_2": "src",
+        "answer_3": "alt",
+        "answer_4": "href",
+        "right_answer": "alt"
+    },
+    {
+        "title": "Which CSS property is used to create a flex container?",
+        "answer_1": "position: flex",
+        "answer_2": "display: flex",
+        "answer_3": "flex-direction: container",
+        "answer_4": "align-items: flex",
+        "right_answer": "display: flex"
+    },
+    {
+        "title": "Which JavaScript method selects an element by its ID?",
+        "answer_1": "document.querySelectorAll()",
+        "answer_2": "document.getElementsByClassName()",
+        "answer_3": "document.getElementById()",
+        "answer_4": "document.createElement()",
+        "right_answer": "document.getElementById()"
+    },
+    {
+        "title": "What does the === operator check in JavaScript?",
+        "answer_1": "Value only",
+        "answer_2": "Type only",
+        "answer_3": "Value and type",
+        "answer_4": "Whether a variable exists",
+        "right_answer": "Value and type"
+    }
+]

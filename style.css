@@ -1,0 +1,308 @@
+
+/* ===== Global ===== */
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #5b5ce2;
+    --primary-dark: #4142b8;
+    --secondary: #8b5cf6;
+    --page-bg: #eef1ff;
+    --card-bg: #ffffff;
+    --question-bg: #f0efff;
+    --answer-bg: #f6f7ff;
+    --answer-hover: #e9ebff;
+    --border: #e1e5f5;
+    --text: #252747;
+    --muted: #777d9b;
+    --success: #16a085;
+    --danger: #e74c65;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 30px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at 10% 10%, #dcdcff 0, transparent 35%),
+        radial-gradient(circle at 90% 90%, #d5e5ff 0, transparent 35%),
+        var(--page-bg);
+}
+
+/* ===== Main Quiz Card ===== */
+.quiz-app {
+    width: 700px;
+    max-width: 100%;
+    padding: 25px;
+    background-color: var(--card-bg);
+    border: 1px solid rgb(255 255 255 / 80%);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgb(61 65 150 / 12%);
+    overflow: hidden;
+}
+
+/* ===== Quiz Information ===== */
+.quiz-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    margin: -25px -25px 25px;
+    background: linear-gradient(135deg, #393b8f, #5b5ce2);
+    color: white;
+    border-radius: 19px 19px 0 0;
+}
+
+.quiz-info .category,
+.quiz-info .count {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.quiz-info .category span,
+.quiz-info .count span {
+    display: inline-block;
+    margin-left: 5px;
+    padding: 7px 12px;
+    color: white;
+    background-color: rgb(255 255 255 / 17%);
+    border-radius: 8px;
+}
+
+/* ===== Question Area ===== */
+.quiz-area {
+    padding: 22px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #f0efff, #f5f7ff);
+    border: 1px solid #e7e5ff;
+    border-radius: 14px;
+}
+
+.quiz-area h2 {
+    margin: 0;
+    font-size: 22px;
+    line-height: 1.6;
+    color: var(--text);
+}
+
+/* ===== Answers Area ===== */
+.answers-area {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgb(50 60 120 / 4%);
+}
+
+.answers-area .answer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    background-color: var(--answer-bg);
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    transition: background-color 0.2s, border-color 0.2s,
+                transform 0.2s;
+}
+
+.answers-area .answer:hover {
+    background-color: var(--answer-hover);
+    border-color: #c7c8ff;
+    transform: translateX(3px);
+}
+
+.answers-area input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    flex-shrink: 0;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+.answers-area label {
+    flex: 1;
+    font-size: 16px;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.answers-area input[type="radio"]:checked + label {
+    color: var(--primary-dark);
+    font-weight: bold;
+}
+
+.answers-area .answer:has(input[type="radio"]:checked) {
+    background-color: #ececff;
+    border-color: var(--primary);
+}
+
+/* ===== Submit Button ===== */
+.submit-button {
+    display: block;
+    width: 100%;
+    margin: 22px 0;
+    padding: 15px;
+    color: white;
+    background: linear-gradient(135deg, #4776f5, #6558e8);
+    border: none;
+    border-radius: 11px;
+    box-shadow: 0 6px 15px rgb(91 92 226 / 22%);
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.submit-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 9px 20px rgb(91 92 226 / 30%);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+}
+
+/* ===== Bullets & Countdown ===== */
+.bullets {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background-color: #f1f0ff;
+    border: 1px solid #e6e3ff;
+    border-radius: 13px;
+}
+
+.bullets .spans {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.bullets .spans > span {
+    width: 13px;
+    height: 13px;
+    background-color: #d2d5eb;
+    border-radius: 50%;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.bullets .spans > span.on {
+    background-color: #4776f5;
+    transform: scale(1.2);
+}
+
+.bullets .spans > span.correct {
+    background-color: var(--success);
+}
+
+.bullets .spans > span.wrong {
+    background-color: var(--danger);
+}
+
+.countdown {
+    margin-left: auto;
+    padding-left: 15px;
+    color: var(--primary-dark);
+    border-left: 1px solid #d8d5f5;
+    white-space: nowrap;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* ===== Results ===== */
+.results {
+    margin-top: 20px;
+    padding: 22px 15px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.7;
+    background-color: #e9faf4;
+    border: 1px solid #d1f2e6;
+    border-radius: 13px;
+}
+
+.results .perfect {
+    color: var(--success);
+}
+
+.results .good {
+    color: var(--primary);
+}
+
+.results .bad {
+    color: var(--danger);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 500px) {
+    body {
+        padding: 15px 10px;
+    }
+
+    .quiz-app {
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    .quiz-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        margin: -15px -15px 18px;
+        padding: 18px;
+        border-radius: 14px 14px 0 0;
+    }
+
+    .quiz-area {
+        padding: 17px;
+    }
+
+    .quiz-area h2 {
+        font-size: 19px;
+    }
+
+    .answers-area {
+        padding: 10px;
+        gap: 9px;
+    }
+
+    .answers-area .answer {
+        padding: 12px;
+    }
+
+    .answers-area label {
+        font-size: 14px;
+    }
+
+    .bullets {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .countdown {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: none;
+    }
+
+    .results {
+        font-size: 17px;
+    }
+}
